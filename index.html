@@ -10,36 +10,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="content/themes/getz/static/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="content/themes/getz/static/favicon/favicon-16x16.png">
     <link rel='stylesheet' href='content/themes/getz/static/dist/style.css' />
-    <script>
-        var tag = document.createElement('script');
-      
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
-        var player;
-        function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-            width: '100%',
-            videoId: 'HexFqifusOk',
-            playerVars: { 'autoplay': 1, 'playsinline': 1 },
-            events: {
-              'onload': onPlayerReady
-            }
-          });
-        }
-      
-      function onPlayerReady(event) {
-           event.target.unMute();
-          event.target.playVideo();
-        }
-      </script>
+
 </head>
 
 <body class="home page-template page-template-page-templates page-template-home page-template-page-templateshome-php page page-id-2 is-desktop">
-    <a href="/mugdha/" class="audio-play">
+    <a href="/mugdha/" class="c-navigation__link js-link" style="position: fixed;bottom: 11px;left: 10px;z-index: 1000;">
         <span class="u-b0">Play</span>
     </a>
     <div class="c-cursor-wrapper js-cursor">
@@ -385,7 +360,32 @@
     lazySizes.cfg.nativeLoading = { setLoadingAttribute: false, disableListeners: { scroll: true } };
     lazySizes.init();
     </script>
+    <script>
+      var tag = document.createElement('script');
     
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          width: '100%',
+          videoId: 'HexFqifusOk',
+          playerVars: { 'autoplay': 1, 'playsinline': 1 },
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+    
+    function onPlayerReady(event) {
+         event.target.unMute();
+        event.target.playVideo();
+      }
+    </script>
 </body>
 
 </html>
